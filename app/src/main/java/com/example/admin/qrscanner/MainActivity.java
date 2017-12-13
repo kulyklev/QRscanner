@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -33,12 +34,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        cameraPreview = (SurfaceView) findViewById(R.id.surfaceView);
-        txtView = (TextView) findViewById(R.id.txtView_scanResult);
+        cameraPreview = findViewById(R.id.surfaceView);
+        //txtView = (TextView) findViewById(R.id.txtView_scanResult);
         createCameraSource();
 
     }
-
 
     private void createCameraSource() {
         BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this).build();
